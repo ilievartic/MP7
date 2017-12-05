@@ -1,13 +1,29 @@
 # MP7
 #Our MP7 project
+# !/usr/bin/python3
+from tkinter import *
+from tkinter import messagebox
+top = Tk()
+L1 = Label(top, text = "Guess")
+L1.pack( side = LEFT)
+L2 = Label(top, text = "HANGMAN")
+L2.pack( side = TOP)
+E1 = Entry(top, bd = 6)
+E1.pack(side = RIGHT)
 
+
+
+
+top.geometry("200x150")
+def hello():
+   msg = messagebox.showinfo( "Hello Python", E1.get())
+   C = Canvas(top, bg = "black", height = 40, width = 40)
+   C.pack()
 def game():
-    print("Type the corresponding number for the game you wish to play:")
-    print("1. Battleship")
-    print("2. Hangman")
-    chosen = input("")
-    if chosen == "2":
-        hangman()
+    print("--------------------------------------------------------------------")
+    print("                            HANGMAN             ")
+    print("--------------------------------------------------------------------")
+    hangman()
 def guess(guess, word, lim):
     
     return word.find(guess,lim,len(word))
@@ -140,3 +156,10 @@ def hangman():
     print("                                      GAME OVER !!!")     
     
  
+B = Button(top, text = "Enter", command = hello)
+B.place(x = 50,y = 80)
+top.mainloop()
+
+
+
+
